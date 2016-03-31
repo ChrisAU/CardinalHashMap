@@ -95,6 +95,14 @@ extension HashMap2DTests {
         XCTAssertEqual(uncollected, [])
     }
     
+    func testHashMapCollectFromSingleDirectionPassedMultipleNoWhile() {
+        let objects = [[1,2,3], [4,5,6], [7,8,9]]
+        let hashMap = HashMap2D(objects)!
+        
+        let collected = hashMap.collectFrom(6, direction: .West)
+        XCTAssertEqual(collected.sort(), objects[1])
+    }
+    
 }
 
 
@@ -141,6 +149,14 @@ extension HashMap2DTests {
         
         let uncollected = hashMap.collectFrom(6, while: falseFunc)
         XCTAssertEqual(uncollected, [])
+    }
+    
+    func testHashMapCollectFromAllDirectionsPassedMultipleNoWhile() {
+        let objects = [[1,2,3], [4,5,6], [7,8,9]]
+        let hashMap = HashMap2D(objects)!
+        
+        let collected = hashMap.collectFrom(5)
+        XCTAssertEqual(collected.sort(), [2,4,5,6,8])
     }
     
 }
