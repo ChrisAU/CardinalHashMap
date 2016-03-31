@@ -23,7 +23,7 @@ public struct HashMap2D<T: Hashable> {
     private let hashMap: HashMap2DType
     
     /// Initializes a hashmap with the given objects, will fail if items are not unique.
-    init?(_ objects: [[T]]) {
+    public init?(_ objects: [[T]]) {
         var tempMap = HashMap2DType()
         for (row, items) in objects.enumerate() {
             for (column, item) in items.enumerate() {
@@ -49,23 +49,23 @@ public struct HashMap2D<T: Hashable> {
         hashMap = tempMap
     }
     
-    subscript(object: T, direction: CardinalDirection) -> T? {
+    public subscript(object: T, direction: CardinalDirection) -> T? {
         return hashMap[object]?[direction]
     }
     
-    subscript(object: T) -> [CardinalDirection: T]? {
+    public subscript(object: T) -> [CardinalDirection: T]? {
         return hashMap[object]
     }
 }
 
-public extension HashMap2D {
+extension HashMap2D {
     
     /// Iterate in direction as long as `while` passes and it is possible to navigate in that direction.
     /// - parameter object: First object to validate and iterate from.
     /// - parameter direction: `CardinalDirection` to travel in.
     /// - parameter while (Optional): Validate `object`, if `false` is returned function will exit and return. If not specified or nil is specified it will assume `true`.
     /// - returns: `object` and all other objects in that direction that pass `while` validation.
-    func collectFrom(object: T, direction: CardinalDirection, `while`: ((T) -> Bool)? = nil) -> [T] {
+    public func collectFrom(object: T, direction: CardinalDirection, `while`: ((T) -> Bool)? = nil) -> [T] {
         var buffer = [T]()
         if hashMap[object] == nil {
             return buffer
@@ -84,7 +84,7 @@ public extension HashMap2D {
     /// - parameter directions (Optional): `CardinalDirection` array, if nil is given it will assume all directions.
     /// - parameter while (Optional): Validate `object`, if `false` is returned function will exit and return. If not specified or nil is specified it will assume `true`.
     /// - returns: `object` and all other objects in given directions that pass `while` validation.
-    func collectFrom(object: T, directions: [CardinalDirection]? = nil, `while`: ((T) -> Bool)? = nil) -> [T] {
+    public func collectFrom(object: T, directions: [CardinalDirection]? = nil, `while`: ((T) -> Bool)? = nil) -> [T] {
         var buffer = [T]()
         if hashMap[object] == nil {
             return buffer
