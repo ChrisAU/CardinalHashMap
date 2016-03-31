@@ -1,7 +1,7 @@
 # CardinalHashMap
 Helpful for navigating a 2D array using the Cardinal Directions (i.e. North, East, South, West).
 
-## Usage:
+### Usage:
 ```
 let board3x3 = CardinalHashMap([[1,2,3], [4,5,6], [7,8,9]])!
 
