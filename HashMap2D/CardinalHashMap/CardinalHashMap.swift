@@ -1,6 +1,6 @@
 //
-//  HashMap2D.swift
-//  HashMap2D
+//  CardinalHashMap.swift
+//  CardinalHashMap
 //
 //  Created by Chris Nevin on 31/03/2016.
 //  Copyright © 2016 CJNevin. All rights reserved.
@@ -18,13 +18,13 @@ public enum CardinalDirection {
     }
 }
 
-public struct HashMap2D<T: Hashable> {
-    typealias HashMap2DType = [T: [CardinalDirection: T]]
-    private let hashMap: HashMap2DType
+public struct CardinalHashMap<T: Hashable> {
+    typealias CardinalHashMapType = [T: [CardinalDirection: T]]
+    private let hashMap: CardinalHashMapType
     
     /// Initializes a hashmap with the given objects, will fail if items are not unique.
     public init?(_ objects: [[T]]) {
-        var tempMap = HashMap2DType()
+        var tempMap = CardinalHashMapType()
         for (row, items) in objects.enumerate() {
             for (column, item) in items.enumerate() {
                 var directions = [CardinalDirection: T]()
@@ -58,7 +58,7 @@ public struct HashMap2D<T: Hashable> {
     }
 }
 
-extension HashMap2D {
+extension CardinalHashMap {
     
     /// Iterate in direction as long as `while` passes and it is possible to navigate in that direction.
     /// - parameter object: First object to validate and iterate from.

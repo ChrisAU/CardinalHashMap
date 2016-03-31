@@ -7,30 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		99C058AD1CADADFA004205CE /* HashMap2D.h in Headers */ = {isa = PBXBuildFile; fileRef = 99C058AC1CADADFA004205CE /* HashMap2D.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		99C058B41CADADFA004205CE /* HashMap2D.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99C058A91CADADFA004205CE /* HashMap2D.framework */; };
-		99C058B91CADADFA004205CE /* HashMap2DTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C058B81CADADFA004205CE /* HashMap2DTests.swift */; };
-		99C058C41CADAE2D004205CE /* HashMap2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C058C31CADAE2D004205CE /* HashMap2D.swift */; };
+		99C058AD1CADADFA004205CE /* CardinalHashMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 99C058AC1CADADFA004205CE /* CardinalHashMap.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		99C058C41CADAE2D004205CE /* CardinalHashMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C058C31CADAE2D004205CE /* CardinalHashMap.swift */; };
+		99C058DA1CADC001004205CE /* CardinalHashMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C058D91CADC001004205CE /* CardinalHashMapTests.swift */; };
+		99C058DC1CADC001004205CE /* CardinalHashMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99C058A91CADADFA004205CE /* CardinalHashMap.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		99C058B51CADADFA004205CE /* PBXContainerItemProxy */ = {
+		99C058DD1CADC001004205CE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 99C058A01CADADFA004205CE /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 99C058A81CADADFA004205CE;
-			remoteInfo = HashMap2D;
+			remoteInfo = CardinalHashMap;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		99C058A91CADADFA004205CE /* HashMap2D.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HashMap2D.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		99C058AC1CADADFA004205CE /* HashMap2D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HashMap2D.h; sourceTree = "<group>"; };
+		99C058A91CADADFA004205CE /* CardinalHashMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CardinalHashMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		99C058AC1CADADFA004205CE /* CardinalHashMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardinalHashMap.h; sourceTree = "<group>"; };
 		99C058AE1CADADFA004205CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		99C058B31CADADFA004205CE /* HashMap2DTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HashMap2DTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		99C058B81CADADFA004205CE /* HashMap2DTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashMap2DTests.swift; sourceTree = "<group>"; };
-		99C058BA1CADADFA004205CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		99C058C31CADAE2D004205CE /* HashMap2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashMap2D.swift; sourceTree = "<group>"; };
+		99C058C31CADAE2D004205CE /* CardinalHashMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardinalHashMap.swift; sourceTree = "<group>"; };
+		99C058D71CADC001004205CE /* CardinalHashMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardinalHashMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		99C058D91CADC001004205CE /* CardinalHashMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardinalHashMapTests.swift; sourceTree = "<group>"; };
+		99C058DB1CADC001004205CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,11 +41,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		99C058B01CADADFA004205CE /* Frameworks */ = {
+		99C058D41CADC001004205CE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99C058B41CADADFA004205CE /* HashMap2D.framework in Frameworks */,
+				99C058DC1CADC001004205CE /* CardinalHashMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,8 +55,8 @@
 		99C0589F1CADADFA004205CE = {
 			isa = PBXGroup;
 			children = (
-				99C058AB1CADADFA004205CE /* HashMap2D */,
-				99C058B71CADADFA004205CE /* HashMap2DTests */,
+				99C058AB1CADADFA004205CE /* CardinalHashMap */,
+				99C058D81CADC001004205CE /* CardinalHashMapTests */,
 				99C058AA1CADADFA004205CE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,29 +64,29 @@
 		99C058AA1CADADFA004205CE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				99C058A91CADADFA004205CE /* HashMap2D.framework */,
-				99C058B31CADADFA004205CE /* HashMap2DTests.xctest */,
+				99C058A91CADADFA004205CE /* CardinalHashMap.framework */,
+				99C058D71CADC001004205CE /* CardinalHashMapTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		99C058AB1CADADFA004205CE /* HashMap2D */ = {
+		99C058AB1CADADFA004205CE /* CardinalHashMap */ = {
 			isa = PBXGroup;
 			children = (
-				99C058AC1CADADFA004205CE /* HashMap2D.h */,
-				99C058C31CADAE2D004205CE /* HashMap2D.swift */,
+				99C058AC1CADADFA004205CE /* CardinalHashMap.h */,
+				99C058C31CADAE2D004205CE /* CardinalHashMap.swift */,
 				99C058AE1CADADFA004205CE /* Info.plist */,
 			);
-			path = HashMap2D;
+			path = CardinalHashMap;
 			sourceTree = "<group>";
 		};
-		99C058B71CADADFA004205CE /* HashMap2DTests */ = {
+		99C058D81CADC001004205CE /* CardinalHashMapTests */ = {
 			isa = PBXGroup;
 			children = (
-				99C058B81CADADFA004205CE /* HashMap2DTests.swift */,
-				99C058BA1CADADFA004205CE /* Info.plist */,
+				99C058D91CADC001004205CE /* CardinalHashMapTests.swift */,
+				99C058DB1CADC001004205CE /* Info.plist */,
 			);
-			path = HashMap2DTests;
+			path = CardinalHashMapTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,16 +96,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99C058AD1CADADFA004205CE /* HashMap2D.h in Headers */,
+				99C058AD1CADADFA004205CE /* CardinalHashMap.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		99C058A81CADADFA004205CE /* HashMap2D */ = {
+		99C058A81CADADFA004205CE /* CardinalHashMap */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 99C058BD1CADADFA004205CE /* Build configuration list for PBXNativeTarget "HashMap2D" */;
+			buildConfigurationList = 99C058BD1CADADFA004205CE /* Build configuration list for PBXNativeTarget "CardinalHashMap" */;
 			buildPhases = (
 				99C058A41CADADFA004205CE /* Sources */,
 				99C058A51CADADFA004205CE /* Frameworks */,
@@ -116,27 +116,27 @@
 			);
 			dependencies = (
 			);
-			name = HashMap2D;
+			name = CardinalHashMap;
 			productName = HashMap2D;
-			productReference = 99C058A91CADADFA004205CE /* HashMap2D.framework */;
+			productReference = 99C058A91CADADFA004205CE /* CardinalHashMap.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		99C058B21CADADFA004205CE /* HashMap2DTests */ = {
+		99C058D61CADC001004205CE /* CardinalHashMapTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 99C058C01CADADFA004205CE /* Build configuration list for PBXNativeTarget "HashMap2DTests" */;
+			buildConfigurationList = 99C058DF1CADC001004205CE /* Build configuration list for PBXNativeTarget "CardinalHashMapTests" */;
 			buildPhases = (
-				99C058AF1CADADFA004205CE /* Sources */,
-				99C058B01CADADFA004205CE /* Frameworks */,
-				99C058B11CADADFA004205CE /* Resources */,
+				99C058D31CADC001004205CE /* Sources */,
+				99C058D41CADC001004205CE /* Frameworks */,
+				99C058D51CADC001004205CE /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				99C058B61CADADFA004205CE /* PBXTargetDependency */,
+				99C058DE1CADC001004205CE /* PBXTargetDependency */,
 			);
-			name = HashMap2DTests;
-			productName = HashMap2DTests;
-			productReference = 99C058B31CADADFA004205CE /* HashMap2DTests.xctest */;
+			name = CardinalHashMapTests;
+			productName = CardinalHashMapTests;
+			productReference = 99C058D71CADC001004205CE /* CardinalHashMapTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -152,12 +152,12 @@
 					99C058A81CADADFA004205CE = {
 						CreatedOnToolsVersion = 7.3;
 					};
-					99C058B21CADADFA004205CE = {
+					99C058D61CADC001004205CE = {
 						CreatedOnToolsVersion = 7.3;
 					};
 				};
 			};
-			buildConfigurationList = 99C058A31CADADFA004205CE /* Build configuration list for PBXProject "HashMap2D" */;
+			buildConfigurationList = 99C058A31CADADFA004205CE /* Build configuration list for PBXProject "CardinalHashMap" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -169,8 +169,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				99C058A81CADADFA004205CE /* HashMap2D */,
-				99C058B21CADADFA004205CE /* HashMap2DTests */,
+				99C058A81CADADFA004205CE /* CardinalHashMap */,
+				99C058D61CADC001004205CE /* CardinalHashMapTests */,
 			);
 		};
 /* End PBXProject section */
@@ -183,7 +183,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		99C058B11CADADFA004205CE /* Resources */ = {
+		99C058D51CADC001004205CE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -197,25 +197,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99C058C41CADAE2D004205CE /* HashMap2D.swift in Sources */,
+				99C058C41CADAE2D004205CE /* CardinalHashMap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		99C058AF1CADADFA004205CE /* Sources */ = {
+		99C058D31CADC001004205CE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99C058B91CADADFA004205CE /* HashMap2DTests.swift in Sources */,
+				99C058DA1CADC001004205CE /* CardinalHashMapTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		99C058B61CADADFA004205CE /* PBXTargetDependency */ = {
+		99C058DE1CADC001004205CE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 99C058A81CADADFA004205CE /* HashMap2D */;
-			targetProxy = 99C058B51CADADFA004205CE /* PBXContainerItemProxy */;
+			target = 99C058A81CADADFA004205CE /* CardinalHashMap */;
+			targetProxy = 99C058DD1CADC001004205CE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -319,11 +319,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = HashMap2D/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CardinalHashMap/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cjnevin.HashMap2D;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cjnevin.CardinalHashMap;
+				PRODUCT_NAME = CardinalHashMap;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -337,31 +337,31 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = HashMap2D/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CardinalHashMap/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cjnevin.HashMap2D;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cjnevin.CardinalHashMap;
+				PRODUCT_NAME = CardinalHashMap;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
-		99C058C11CADADFA004205CE /* Debug */ = {
+		99C058E01CADC001004205CE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = HashMap2DTests/Info.plist;
+				INFOPLIST_FILE = CardinalHashMapTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cjnevin.HashMap2DTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cjnevin.CardinalHashMapTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		99C058C21CADADFA004205CE /* Release */ = {
+		99C058E11CADC001004205CE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = HashMap2DTests/Info.plist;
+				INFOPLIST_FILE = CardinalHashMapTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cjnevin.HashMap2DTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cjnevin.CardinalHashMapTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -369,7 +369,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		99C058A31CADADFA004205CE /* Build configuration list for PBXProject "HashMap2D" */ = {
+		99C058A31CADADFA004205CE /* Build configuration list for PBXProject "CardinalHashMap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				99C058BB1CADADFA004205CE /* Debug */,
@@ -378,19 +378,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		99C058BD1CADADFA004205CE /* Build configuration list for PBXNativeTarget "HashMap2D" */ = {
+		99C058BD1CADADFA004205CE /* Build configuration list for PBXNativeTarget "CardinalHashMap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				99C058BE1CADADFA004205CE /* Debug */,
 				99C058BF1CADADFA004205CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		99C058C01CADADFA004205CE /* Build configuration list for PBXNativeTarget "HashMap2DTests" */ = {
+		99C058DF1CADC001004205CE /* Build configuration list for PBXNativeTarget "CardinalHashMapTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				99C058C11CADADFA004205CE /* Debug */,
-				99C058C21CADADFA004205CE /* Release */,
+				99C058E01CADC001004205CE /* Debug */,
+				99C058E11CADC001004205CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
