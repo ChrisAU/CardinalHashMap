@@ -10,15 +10,15 @@ board3x3[2] // [.South: 5, .East: 3, .West: 1]
 board3x3[1, .North] // nil - out of bounds
 board3x3[10] // nil - out of bounds
 
-// You can also use IntercardinalDirections
+// You can also use IntercardinalDirection's
 board3x3[1, .NorthEast] // 5
 
 
 
-// There are also collector methods for iterating while something is true (while can be excluded)
+// There are also collector methods for iterating in a particular direction while something is true (while can be excluded)
 board3x3.collectFrom(1, direction: .South, while: { _ in true }) // [1,4,7]
 
-// These are also available for IntercardinalDirections (while can be excluded)
+// These are also available for IntercardinalDirection's (while can be excluded)
 board3x3.collectFrom(1, direction: .NorthEast, while: { _ in true }) // [1,5,9]
 
 // You can also iterate in multiple directions at once
