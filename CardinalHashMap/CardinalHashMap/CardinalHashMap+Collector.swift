@@ -50,4 +50,47 @@ extension CardinalHashMap {
         return Array(Set(buffer))
     }
     
+    // MARK: - Intercardinal
+    
+    /// Iterate in direction as long as `while` passes and it is possible to navigate in that direction.
+    /// - parameter object: First object to validate and iterate from.
+    /// - parameter direction: `IntercardinalDirection` to travel in.
+    /// - parameter while (Optional): Validate `object`, if `false` is returned function will exit and return. If not specified or nil is specified it will assume `true`.
+    /// - returns: `object` and all other objects in that direction that pass `while` validation.
+    public func collectFrom(object: T, direction: IntercardinalDirection, `while`: ((T) -> Bool)? = nil) -> [T] {
+        var buffer = [T]()
+        if self[object] == nil {
+            return buffer
+        }
+        if `while` == nil || `while`?(object) == true {
+            buffer.append(object)
+        }
+        if let nextObject = self[object, direction] {
+            buffer += collectFrom(nextObject, direction: direction, while: `while`)
+        }
+        return buffer
+    }
+    
+    /// Iterate in direction as long as `while` passes and it is possible to navigate in each direction given.
+    /// - parameter object: First object to validate and iterate from.
+    /// - parameter directions (Optional): `IntercardinalDirection` array, if nil is given it will assume all directions.
+    /// - parameter while (Optional): Validate `object`, if `false` is returned function will exit and return. If not specified or nil is specified it will assume `true`.
+    /// - returns: `object` and all other objects in given directions that pass `while` validation.
+    public func collectFrom(object: T, directions: [IntercardinalDirection]? = nil, `while`: ((T) -> Bool)? = nil) -> [T] {
+        var buffer = [T]()
+        if self[object] == nil {
+            return buffer
+        }
+        if `while` == nil || `while`?(object) == true {
+            buffer.append(object)
+        }
+        for direction in directions ?? IntercardinalDirection.all() {
+            if let nextObject = self[object, direction] {
+                buffer += collectFrom(nextObject, direction: direction, while: `while`)
+            }
+        }
+        return Array(Set(buffer))
+    }
+    
+    
 }

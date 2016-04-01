@@ -28,15 +28,15 @@ public enum IntercardinalDirection {
 
 extension CardinalHashMap {
     
-    public subscript(object: T, intercardinalDirection: IntercardinalDirection) -> T? {
+    public subscript(object: T, direction: IntercardinalDirection) -> T? {
         var output = object
-        for direction in intercardinalDirection.toCardinalDirections() {
-            guard let newValue = self[output, direction] else {
+        for cardinalDirection in direction.toCardinalDirections() {
+            guard let newValue = self[output, cardinalDirection] else {
                 return nil
             }
             output = newValue
         }
-        return output != object ? output : nil
+        return output
     }
     
 }
