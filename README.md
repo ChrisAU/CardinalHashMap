@@ -1,5 +1,5 @@
 # CardinalHashMap
-Helpful for navigating a 2D array using the Cardinal Directions (i.e. North, East, South, West).
+Helpful for navigating a 2D array using the Cardinal Directions (i.e. North, East, South, West). It also has support for Intercardinal Directions now as well (i.e. North East, North West, South East, South West).
 
 ### Usage:
 ```
