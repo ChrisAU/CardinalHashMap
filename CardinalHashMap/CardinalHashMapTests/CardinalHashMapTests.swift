@@ -45,4 +45,14 @@ class CardinalHashMapTests: XCTestCase {
         XCTAssertNil(hashMap[10])
         XCTAssertNil(hashMap[11, .North])
     }
+    
+    func testHashMapObjectsIntercardinal() {
+        let objects = [[1,2,3], [4,5,6], [7,8,9]]
+        let hashMap = CardinalHashMap(objects)!
+        XCTAssertEqual(hashMap[5, .NorthWest], 1)
+        XCTAssertEqual(hashMap[5, .NorthEast], 3)
+        XCTAssertEqual(hashMap[5, .SouthEast], 9)
+        XCTAssertEqual(hashMap[5, .SouthWest], 7)
+    }
+    
 }
