@@ -82,7 +82,7 @@ public struct CardinalHashMap<T: Hashable> {
         for dir in direction.toCardinalDirections() where output != nil {
             output = hashMap[output!]?[dir]
         }
-        return object == output ? nil : output
+        return output
     }
     
     public subscript(object: T) -> [CardinalDirection: T]? {
