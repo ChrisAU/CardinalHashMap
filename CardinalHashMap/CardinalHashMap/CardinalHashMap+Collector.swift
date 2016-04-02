@@ -31,10 +31,10 @@ extension CardinalHashMap {
     
     /// Iterate in direction as long as `while` passes and it is possible to navigate in each direction given.
     /// - parameter object: First object to validate and iterate from.
-    /// - parameter directions (Optional): `CardinalDirection` array, if nil is given it will assume all directions.
+    /// - parameter directions: `CardinalDirection` array.
     /// - parameter while (Optional): Validate `object`, if `false` is returned function will exit and return. If not specified or nil is specified it will assume `true`.
     /// - returns: `object` and all other objects in given directions that pass `while` validation.
-    public func collectFrom(object: T, directions: [CardinalDirection]? = nil, `while`: ((T) -> Bool)? = nil) -> [T] {
+    public func collectFrom(object: T, directions: [CardinalDirection], `while`: ((T) -> Bool)? = nil) -> [T] {
         var buffer = [T]()
         if self[object] == nil {
             return buffer
@@ -73,10 +73,10 @@ extension CardinalHashMap {
     
     /// Iterate in direction as long as `while` passes and it is possible to navigate in each direction given.
     /// - parameter object: First object to validate and iterate from.
-    /// - parameter directions (Optional): `IntercardinalDirection` array, if nil is given it will assume all directions.
+    /// - parameter directions: `IntercardinalDirection` array.
     /// - parameter while (Optional): Validate `object`, if `false` is returned function will exit and return. If not specified or nil is specified it will assume `true`.
     /// - returns: `object` and all other objects in given directions that pass `while` validation.
-    public func collectFrom(object: T, directions: [IntercardinalDirection]? = nil, `while`: ((T) -> Bool)? = nil) -> [T] {
+    public func collectFrom(object: T, directions: [IntercardinalDirection], `while`: ((T) -> Bool)? = nil) -> [T] {
         var buffer = [T]()
         if self[object] == nil {
             return buffer
@@ -84,7 +84,7 @@ extension CardinalHashMap {
         if `while` == nil || `while`?(object) == true {
             buffer.append(object)
         }
-        for direction in directions ?? IntercardinalDirection.all() {
+        for direction in directions {
             if let nextObject = self[object, direction] {
                 buffer += collectFrom(nextObject, direction: direction, while: `while`)
             }
