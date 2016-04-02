@@ -17,6 +17,9 @@ public enum CardinalDirection {
     case SouthEast
     case SouthWest
     case West
+    public static func cardinal() -> [CardinalDirection] {
+        return [.North, .East, .South, .West]
+    }
     public static func all() -> [CardinalDirection] {
         return [.North, .NorthEast, .NorthWest, .East, .South, .SouthEast, .SouthWest, .West]
     }
