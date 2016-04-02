@@ -10,20 +10,48 @@ import Foundation
 
 public enum CardinalDirection {
     case North
+    case NorthEast
+    case NorthWest
     case East
     case South
+    case SouthEast
+    case SouthWest
     case West
     public static func all() -> [CardinalDirection] {
-        return [.North, .East, .South, .West]
+        return [.North, .NorthEast, .NorthWest, .East, .South, .SouthEast, .SouthWest, .West]
     }
+    internal func toCardinalDirections() -> [CardinalDirection] {
+        switch self {
+        case .NorthEast: return [.North, .East]
+        case .NorthWest: return [.North, .West]
+        case .SouthEast: return [.South, .East]
+        case .SouthWest: return [.South, .West]
+        default:         return [self]
+        }
+    }
+}
+
+public enum CardinalHashMapError: ErrorType {
+    /// Thrown when the sub-arrays have different number of items in them or zero items.
+    case UnbalancedMatrix
+    /// Thrown when the array contains a duplicate item.
+    case DuplicateItem
 }
 
 public struct CardinalHashMap<T: Hashable> {
     typealias CardinalHashMapType = [T: [CardinalDirection: T]]
     private let hashMap: CardinalHashMapType
     
-    /// Initializes a hashmap with the given objects, will fail if items are not unique.
-    public init?(_ objects: [[T]]) {
+    /// Initializes a hashmap with the given objects, will fail if items are not unique or sub-arrays are unbalanced.
+    public init?(_ objects: [[T]]) throws {
+        if let count = objects.first?.count where count > 0 {
+            for items in objects where items.count != count {
+                throw CardinalHashMapError.UnbalancedMatrix
+            }
+        } else {
+            throw CardinalHashMapError.UnbalancedMatrix
+        }
+        
         var tempMap = CardinalHashMapType()
         for (row, items) in objects.enumerate() {
             for (column, item) in items.enumerate() {
@@ -41,7 +69,7 @@ public struct CardinalHashMap<T: Hashable> {
                     directions[.East] = objects[row][column+1]
                 }
                 if tempMap[item] != nil {
-                    return nil
+                    throw CardinalHashMapError.DuplicateItem
                 }
                 tempMap[item] = directions
             }
@@ -50,7 +78,11 @@ public struct CardinalHashMap<T: Hashable> {
     }
     
     public subscript(object: T, direction: CardinalDirection) -> T? {
-        return hashMap[object]?[direction]
+        var output: T? = object
+        for dir in direction.toCardinalDirections() where output != nil {
+            output = hashMap[output!]?[dir]
+        }
+        return object == output ? nil : output
     }
     
     public subscript(object: T) -> [CardinalDirection: T]? {

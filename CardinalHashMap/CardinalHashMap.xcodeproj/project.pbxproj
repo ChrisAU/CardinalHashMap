@@ -11,7 +11,6 @@
 		99C058C41CADAE2D004205CE /* CardinalHashMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C058C31CADAE2D004205CE /* CardinalHashMap.swift */; };
 		99C058DA1CADC001004205CE /* CardinalHashMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C058D91CADC001004205CE /* CardinalHashMapTests.swift */; };
 		99C058DC1CADC001004205CE /* CardinalHashMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99C058A91CADADFA004205CE /* CardinalHashMap.framework */; };
-		99C058FD1CAE52ED004205CE /* CardinalHashMap+Intercardinal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C058FC1CAE52ED004205CE /* CardinalHashMap+Intercardinal.swift */; };
 		99C058FF1CAE5315004205CE /* CardinalHashMap+Collector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C058FE1CAE5315004205CE /* CardinalHashMap+Collector.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,7 +32,6 @@
 		99C058D71CADC001004205CE /* CardinalHashMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardinalHashMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		99C058D91CADC001004205CE /* CardinalHashMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardinalHashMapTests.swift; sourceTree = "<group>"; };
 		99C058DB1CADC001004205CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		99C058FC1CAE52ED004205CE /* CardinalHashMap+Intercardinal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CardinalHashMap+Intercardinal.swift"; sourceTree = "<group>"; };
 		99C058FE1CAE5315004205CE /* CardinalHashMap+Collector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CardinalHashMap+Collector.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,7 +78,6 @@
 				99C058AC1CADADFA004205CE /* CardinalHashMap.h */,
 				99C058C31CADAE2D004205CE /* CardinalHashMap.swift */,
 				99C058FE1CAE5315004205CE /* CardinalHashMap+Collector.swift */,
-				99C058FC1CAE52ED004205CE /* CardinalHashMap+Intercardinal.swift */,
 				99C058AE1CADADFA004205CE /* Info.plist */,
 			);
 			path = CardinalHashMap;
@@ -205,7 +202,6 @@
 			files = (
 				99C058FF1CAE5315004205CE /* CardinalHashMap+Collector.swift in Sources */,
 				99C058C41CADAE2D004205CE /* CardinalHashMap.swift in Sources */,
-				99C058FD1CAE52ED004205CE /* CardinalHashMap+Intercardinal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

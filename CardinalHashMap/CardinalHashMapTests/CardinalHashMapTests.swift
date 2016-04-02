@@ -13,17 +13,25 @@ class CardinalHashMapTests: XCTestCase {
     
     func testHashMapNotUnique() {
         let objects = [[1,2,3], [3,5,6], [7,8,9]]
-        XCTAssertNil(CardinalHashMap(objects))
+        do {
+            let _ = try CardinalHashMap(objects)
+        }
+        catch CardinalHashMapError.DuplicateItem {
+            XCTAssertTrue(true)
+        }
+        catch {
+            XCTFail()
+        }
     }
     
     func testHashMapObjectsValid() {
         let objects = [[1,2,3], [4,5,6], [7,8,9]]
-        XCTAssertNotNil(CardinalHashMap(objects))
+        XCTAssertNotNil(try! CardinalHashMap(objects))
     }
     
     func testHashMapNavigationValidRange() {
         let objects = [[1,2,3], [4,5,6], [7,8,9]]
-        let hashMap = CardinalHashMap(objects)!
+        let hashMap = try! CardinalHashMap(objects)!
         XCTAssertEqual(hashMap[5, .East], 6)
         XCTAssertEqual(hashMap[5, .West], 4)
         XCTAssertEqual(hashMap[5, .North], 2)
@@ -32,7 +40,7 @@ class CardinalHashMapTests: XCTestCase {
     
     func testHashMapNavigationInvalidRange() {
         let objects = [[1,2,3], [4,5,6], [7,8,9]]
-        let hashMap = CardinalHashMap(objects)!
+        let hashMap = try! CardinalHashMap(objects)!
         XCTAssertNil(hashMap[1, .West])
         XCTAssertNil(hashMap[3, .East])
         XCTAssertNil(hashMap[2, .North])
@@ -41,22 +49,18 @@ class CardinalHashMapTests: XCTestCase {
     
     func testHashMapInvalidItem() {
         let objects = [[1,2,3], [4,5,6], [7,8,9]]
-        let hashMap = CardinalHashMap(objects)!
+        let hashMap = try! CardinalHashMap(objects)!
         XCTAssertNil(hashMap[10])
         XCTAssertNil(hashMap[11, .North])
     }
     
     func testCardinalAll() {
-        XCTAssertEqual(CardinalDirection.all(), [.North, .East, .South, .West])
-    }
-    
-    func testIntercardinalAll() {
-        XCTAssertEqual(IntercardinalDirection.all(), [.NorthEast, .NorthWest, .SouthEast, .SouthWest])
+        XCTAssertEqual(CardinalDirection.all(), [.North, .NorthEast, .NorthWest, .East, .South, .SouthEast, .SouthWest, .West])
     }
     
     func testHashMapObjectsIntercardinal() {
         let objects = [[1,2,3], [4,5,6], [7,8,9]]
-        let hashMap = CardinalHashMap(objects)!
+        let hashMap = try! CardinalHashMap(objects)!
         XCTAssertEqual(hashMap[5, .NorthWest], 1)
         XCTAssertEqual(hashMap[5, .NorthEast], 3)
         XCTAssertEqual(hashMap[5, .SouthEast], 9)
@@ -65,103 +69,104 @@ class CardinalHashMapTests: XCTestCase {
     
     func testHashMapCardinalCollection() {
         let objects = [[1,2,3], [4,5,6], [7,8,9]]
-        let hashMap = CardinalHashMap(objects)!
-        XCTAssertEqual(hashMap.collectFrom(1, direction: .South).sort(), [1,4,7])
-        XCTAssertEqual(hashMap.collectFrom(7, direction: .North).sort(), [1,4,7])
-        XCTAssertEqual(hashMap.collectFrom(6, direction: .West).sort(), [4,5,6])
-        XCTAssertEqual(hashMap.collectFrom(4, direction: .East).sort(), [4,5,6])
+        let hashMap = try! CardinalHashMap(objects)!
+        XCTAssertEqual(hashMap.collect(1, direction: .South).sort(), [1,4,7])
+        XCTAssertEqual(hashMap.collect(7, direction: .North).sort(), [1,4,7])
+        XCTAssertEqual(hashMap.collect(6, direction: .West).sort(), [4,5,6])
+        XCTAssertEqual(hashMap.collect(4, direction: .East).sort(), [4,5,6])
     }
     
     func testHashMapCardinalCollectionWhileTrue() {
         let objects = [[1,2,3], [4,5,6], [7,8,9]]
-        let hashMap = CardinalHashMap(objects)!
-        XCTAssertEqual(hashMap.collectFrom(1, direction: .South, while: { _ in true}).sort(), [1,4,7])
+        let hashMap = try! CardinalHashMap(objects)!
+        XCTAssertEqual(hashMap.collect(1, direction: .South, while: { _ in true}).sort(), [1,4,7])
     }
     
     func testHashMapCardinalCollectionWhileFalse() {
         let objects = [[1,2,3], [4,5,6], [7,8,9]]
-        let hashMap = CardinalHashMap(objects)!
-        XCTAssertEqual(hashMap.collectFrom(1, direction: .South, while: { _ in false}), [])
+        let hashMap = try! CardinalHashMap(objects)!
+        XCTAssertEqual(hashMap.collect(1, direction: .South, while: { _ in false}), [])
     }
     
     func testHashMapIntercardinalCollection() {
         let objects = [[1,2,3], [4,5,6], [7,8,9]]
-        let hashMap = CardinalHashMap(objects)!
-        XCTAssertEqual(hashMap.collectFrom(1, direction: .SouthEast).sort(), [1,5,9])
-        XCTAssertEqual(hashMap.collectFrom(9, direction: .NorthWest).sort(), [1,5,9])
-        XCTAssertEqual(hashMap.collectFrom(3, direction: .SouthWest).sort(), [3,5,7])
-        XCTAssertEqual(hashMap.collectFrom(7, direction: .NorthEast).sort(), [3,5,7])
+        let hashMap = try! CardinalHashMap(objects)!
+        XCTAssertEqual(hashMap.collect(1, direction: .SouthEast).sort(), [1,5,9])
+        XCTAssertEqual(hashMap.collect(9, direction: .NorthWest).sort(), [1,5,9])
+        XCTAssertEqual(hashMap.collect(3, direction: .SouthWest).sort(), [3,5,7])
+        XCTAssertEqual(hashMap.collect(7, direction: .NorthEast).sort(), [3,5,7])
     }
     
     func testHashMapIntercardinalCollectionWhileTrue() {
         let objects = [[1,2,3], [4,5,6], [7,8,9]]
-        let hashMap = CardinalHashMap(objects)!
-        XCTAssertEqual(hashMap.collectFrom(1, direction: .SouthEast, while: { _ in true}).sort(), [1,5,9])
+        let hashMap = try! CardinalHashMap(objects)!
+        XCTAssertEqual(hashMap.collect(1, direction: .SouthEast, while: { _ in true}).sort(), [1,5,9])
     }
     
     func testHashMapIntercardinalCollectionWhileFalse() {
         let objects = [[1,2,3], [4,5,6], [7,8,9]]
-        let hashMap = CardinalHashMap(objects)!
-        XCTAssertEqual(hashMap.collectFrom(1, direction: .SouthEast, while: { _ in false}), [])
+        let hashMap = try! CardinalHashMap(objects)!
+        XCTAssertEqual(hashMap.collect(1, direction: .SouthEast, while: { _ in false}), [])
     }
     
     func testHashMapCardinalCollectionMultipleDirections() {
         let objects = [[1,2,3], [4,5,6], [7,8,9]]
-        let hashMap = CardinalHashMap(objects)!
-        XCTAssertEqual(hashMap.collectFrom(4, directions: [.North, .South]).sort(), [1,4,7])
+        let hashMap = try! CardinalHashMap(objects)!
+        XCTAssertEqual(hashMap.collect(4, directions: [.North, .South]).sort(), [1,4,7])
     }
     
     func testHashMapCardinalCollectionMultipleDirectionsWhileTrue() {
         let objects = [[1,2,3], [4,5,6], [7,8,9]]
-        let hashMap = CardinalHashMap(objects)!
-        XCTAssertEqual(hashMap.collectFrom(4, directions: [.North, .South], while: { _ in true}).sort(), [1,4,7])
+        let hashMap = try! CardinalHashMap(objects)!
+        XCTAssertEqual(hashMap.collect(4, directions: [.North, .South], while: { _ in true}).sort(), [1,4,7])
     }
     
     func testHashMapCardinalCollectionMultipleDirectionsWhileFalse() {
         let objects = [[1,2,3], [4,5,6], [7,8,9]]
-        let hashMap = CardinalHashMap(objects)!
-        XCTAssertEqual(hashMap.collectFrom(4, directions: [.North, .South], while: { _ in false}), [])
+        let hashMap = try! CardinalHashMap(objects)!
+        XCTAssertEqual(hashMap.collect(4, directions: [.North, .South], while: { _ in false}), [])
     }
     
     func testHashMapCardinalCollectionMultipleDirectionsInvalid() {
         let objects = [[1,2,3], [4,5,6], [7,8,9]]
-        let hashMap = CardinalHashMap(objects)!
-        XCTAssertEqual(hashMap.collectFrom(10, directions: [.North, .South]), [])
+        let hashMap = try! CardinalHashMap(objects)!
+        XCTAssertEqual(hashMap.collect(10, directions: [.North, .South]), [])
     }
     
     func testHashMapIntercardinalCollectionMultipleDirections() {
         let objects = [[1,2,3], [4,5,6], [7,8,9]]
-        let hashMap = CardinalHashMap(objects)!
-        XCTAssertEqual(hashMap.collectFrom(5, directions: [.NorthWest, .SouthEast]).sort(), [1,5,9])
+        let hashMap = try! CardinalHashMap(objects)!
+        XCTAssertEqual(hashMap.collect(5, directions: [.NorthWest, .SouthEast]).sort(), [1,5,9])
     }
     
     func testHashMapIntercardinalCollectionMultipleDirectionsWhileTrue() {
         let objects = [[1,2,3], [4,5,6], [7,8,9]]
-        let hashMap = CardinalHashMap(objects)!
-        XCTAssertEqual(hashMap.collectFrom(5, directions: [.NorthWest, .SouthEast], while: { _ in true }).sort(), [1,5,9])
+        let hashMap = try! CardinalHashMap(objects)!
+        XCTAssertEqual(hashMap.collect(5, directions: [.NorthWest, .SouthEast], while: { _ in true }).sort(), [1,5,9])
     }
     
     func testHashMapIntercardinalCollectionMultipleDirectionsWhileFalse() {
         let objects = [[1,2,3], [4,5,6], [7,8,9]]
-        let hashMap = CardinalHashMap(objects)!
-        XCTAssertEqual(hashMap.collectFrom(5, directions: [.NorthWest, .SouthEast], while: { _ in false }), [])
+        let hashMap = try! CardinalHashMap(objects)!
+        XCTAssertEqual(hashMap.collect(5, directions: [.NorthWest, .SouthEast], while: { _ in false }), [])
     }
     
     func testHashMapIntercardinalCollectionMultipleDirectionsInvalid() {
         let objects = [[1,2,3], [4,5,6], [7,8,9]]
-        let hashMap = CardinalHashMap(objects)!
-        XCTAssertEqual(hashMap.collectFrom(10, directions: [.NorthWest, .SouthEast]), [])
+        let hashMap = try! CardinalHashMap(objects)!
+        XCTAssertEqual(hashMap.collect(10, directions: [.NorthWest, .SouthEast]), [])
     }
     
     func testHashMapCardinalCollectionInvalid() {
         let objects = [[1,2,3], [4,5,6], [7,8,9]]
-        let hashMap = CardinalHashMap(objects)!
-        XCTAssertEqual(hashMap.collectFrom(10, direction: .South), [])
+        let hashMap = try! CardinalHashMap(objects)!
+        XCTAssertEqual(hashMap.collect(10, direction: .South), [])
     }
     
     func testHashMapIntercardinalCollectionInvalid() {
         let objects = [[1,2,3], [4,5,6], [7,8,9]]
-        let hashMap = CardinalHashMap(objects)!
-        XCTAssertEqual(hashMap.collectFrom(10, direction: .SouthEast), [])
+        let hashMap = try! CardinalHashMap(objects)!
+        XCTAssertEqual(hashMap.collect(10, direction: .SouthEast), [])
     }
+
 }
