@@ -1,5 +1,5 @@
 # CardinalHashMap
-Helpful for navigating a 2D array using the Cardinal Directions (i.e. North, East, South, West, North East, North West, South East, South West).
+Helpful for navigating a 2D array using the cardinal directions (and intercardinal directions).
 
 ### Usage:
 ```
@@ -29,5 +29,8 @@ board3x3.collect(5, directions: [.South, .North]) // [2,5,8]
 board3x3.collect(5, directions: [.SouthEast, .NorthWest]) // [1,5,9]
 
 // Finally, there is also a method that uses the a modified seed-fill algorithm where you can specify which directions to fill in
-board3x3..seedFill(5, directions: [.South, .East]) // [5,6,8,9]
+board3x3.seedFill(5, directions: [.South, .East]) // [5,6,8,9]
 ```
+
+### Applications:
+Useful for navigating a board such as you would find in games like Scrabble, Chess, Checkers, etc
