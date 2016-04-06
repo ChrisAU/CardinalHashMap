@@ -33,4 +33,4 @@ board3x3.seedFill(5, directions: [.South, .East]) // [5,6,8,9]
 ```
 
 ### Applications:
-Useful for navigating a board such as you would find in games like Scrabble, Chess, Checkers, etc
+Useful for navigating a game board like you might find in: Scrabble, Chess, Checkers, etc
