@@ -13,7 +13,7 @@ board3x3[1, .North] // nil - out of bounds
 board3x3[10] // nil - out of bounds
 
 // You can also use intercardinal directions
-board3x3[1, .NorthEast] // 5
+board3x3[9, .NorthEast] // 5
 
 
 
